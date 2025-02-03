@@ -1,20 +1,12 @@
 version: "3.8"
-
 services:
-  web:
-    container_name: my-portfolio-container
-    build:
-      context: .
-      dockerfile: Dockerfile
+  portfolio-web:
+    build: .
+    container_name: nextjs-portfolio
     ports:
       - "3000:3000"
-    # 開発用なのでソースをボリュームマウント
     volumes:
-      # ローカルのカレントディレクトリをコンテナの /app にマウント
       - .:/app
-      # node_modules はコンテナ内だけで管理するため、ホストにはマウントしない（競合防止）
-      - /app/node_modules
-    # dev サーバー起動コマンド
-    command: ["npm", "run", "dev"]
-    environment:
-      - NODE_ENV=development
+    # 作業ディレクトリは一旦 /app にしておく（後でコンテナ内に入って操作）
+    working_dir: /app
+    command: ["tail", "-f", "/dev/null"]

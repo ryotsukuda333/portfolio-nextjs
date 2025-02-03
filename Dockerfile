@@ -1,20 +1,10 @@
-# Dockerfile (Dev 用)
+# Dockerfile
 FROM node:18-alpine
 
-# 作業ディレクトリ
+# もしシェル操作をしやすくしたいなら bash 入れるなど
+RUN apk add --no-cache bash
+
 WORKDIR /app
 
-# package.json と package-lock.json を先にコピー
-COPY package*.json ./
-
-# npm install
-RUN npm install
-
-# ソースコードをコピー
-# (volume マウントするのでコピーしなくても OK とする場合も)
-COPY . .
-
-EXPOSE 3000
-
-# コンテナ起動時に Next.js の開発サーバーを立ち上げる
-CMD ["npm", "run", "dev"]
+# デフォルトコマンドは「何もしない」状態にしておく
+CMD ["tail", "-f", "/dev/null"]
