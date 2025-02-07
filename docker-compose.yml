@@ -6,7 +6,5 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-    # 作業ディレクトリは一旦 /app にしておく（後でコンテナ内に入って操作）
-    working_dir: /app
+      - ./src:/app
     command: ["tail", "-f", "/dev/null"]
