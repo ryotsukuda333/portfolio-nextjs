@@ -1,11 +1,16 @@
 
-import { getProfileName, getEmail, getSkills } from "../utils/profile";
+import Image from "next/image";
+import { getProfileName, getEmail, getProfileDescription, getXUrl, getGithubUrl, getInstagramUrl, getSkills } from "../utils/profile";
 
 export default function Home() {
 
   const name = getProfileName();
   const email = getEmail();
+  const description = getProfileDescription();
   const skills = getSkills();
+  const xUrl = getXUrl();
+  const githubUrl = getGithubUrl();
+  const instagramUrl = getInstagramUrl();
 
 
   return (
@@ -14,17 +19,17 @@ export default function Home() {
       {/* bg-base-100 などに変更してみる */}
       <section className="hero bg-base-100 p-6 rounded-lg mb-8">
         <div className="hero-content flex-col lg:flex-row">
-          {/* プロフィール画像 */}
-          <img
+          <Image
             src="/profile.jpg"
             alt="Profile"
+            width={160}
+            height={160}
             className="max-w-xs rounded-full shadow-2xl w-40 h-40 object-cover"
           />
           <div className="lg:ml-8 mt-4 lg:mt-0 text-center lg:text-left">
             <h1 className="text-4xl font-bold">{name}</h1>
             <p className="py-4 max-w-md">
-              フリーランスのソフトウェアエンジニアです。
-              Webアプリ開発を中心に、React/Next.jsやNode.jsによるサービス構築を手がけています。
+              {description}
             </p>
             {email && (
               <button className="btn btn-primary">
@@ -50,46 +55,44 @@ export default function Home() {
 
       {/* SNS / リンクセクション */}
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Connect</h2>
+        <h2 className="text-2xl font-semibold mb-4">SNS</h2>
         <ul className="list-disc list-inside space-y-2">
-          <li>
-            <a
-              href="https://twitter.com/your_account"
-              className="text-primary hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/your_account"
-              className="text-primary hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/your_account/"
-              className="text-primary hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a
-              href="mailto:your-email@example.com"
-              className="text-primary hover:underline"
-            >
-              your-email@example.com
-            </a>
-          </li>
+          {xUrl && (
+            <li>
+              <a
+                href={xUrl}
+                className="text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X
+              </a>
+            </li>
+          )}
+          {instagramUrl && (
+            <li>
+              <a
+                href={instagramUrl}
+                className="text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </li>
+          )}
+          {githubUrl && (
+            <li>
+              <a
+                href={githubUrl}
+                className="text-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </li>
+          )}
         </ul>
       </section>
     </main>
