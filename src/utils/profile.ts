@@ -25,28 +25,28 @@ export function getInstagramUrl(): string {
 export function getSkills(): { title: string; description: string }[] {
   return [
     {
-      title: "JavaScript / TypeScript",
-      description: "ES6+, TypeScript, Node.js",
-    },
-    {
-      title: "React / Next.js",
-      description: "Hooks, SSR, SSG, Redux, etc.",
-    },
-    {
-      title: "Tailwind CSS",
-      description: "ユーティリティファーストでの迅速なスタイリング",
+      title: "React / TypeScript",
+      description: "React Hooks, TypeScript",
     },
     {
       title: "Node.js / Express",
-      description: "REST API, WebSocket, microservices",
+      description: "REST API, Asynchronous Programming",
+    },
+    {
+      title: "Python / FastAPI",
+      description: "Batch Processing, REST API Development",
+    },
+    {
+      title: "Golang",
+      description: "API Development",
     },
     {
       title: "Database",
-      description: "MySQL, PostgreSQL, MongoDB",
+      description: "MySQL, PostgreSQL, Database Design, Query Optimization",
     },
     {
       title: "AWS / GCP",
-      description: "EC2, S3, Cloud Run, Firebase など",
+      description: "ECS, EC2, S3, Cloud Run, Infrastructure Design and Management",
     },
   ];
 }

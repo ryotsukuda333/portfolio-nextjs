@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: process.env.NEXT_PUBLIC_SITE_TITLE || "Default Title",
+};
 
 export default function RootLayout({
   children,
@@ -8,7 +11,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
+      <head>
+        <title>{metadata.title?.toString()}</title>
+      </head>
       <body>{children}</body>
     </html>
   );
