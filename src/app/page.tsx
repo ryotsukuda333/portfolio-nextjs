@@ -1,5 +1,3 @@
-
-import Image from "next/image";
 import { getProfileName, getEmail, getProfileDescription, getXUrl, getGithubUrl, getInstagramUrl, getSkills } from "../utils/profile";
 
 export default function Home() {
@@ -15,15 +13,14 @@ export default function Home() {
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
-      {/* 自己紹介セクション */}
-      {/* bg-base-100 などに変更してみる */}
       <section className="hero bg-base-100 p-6 rounded-lg mb-8">
         <div className="hero-content flex-col lg:flex-row">
-          <Image
+          {/* ビルドしてexportするためimgタグ */}
+          <img
             src="/profile.jpg"
             alt="Profile"
-            width={160}
-            height={160}
+            width="160"
+            height="160"
             className="max-w-xs rounded-full shadow-2xl w-40 h-40 object-cover"
           />
           <div className="lg:ml-8 mt-4 lg:mt-0 text-center lg:text-left">
